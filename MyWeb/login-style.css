@@ -1,0 +1,95 @@
+/* 基本設定 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", sans-serif;
+    background: linear-gradient(-45deg, #1a3d2f, #214f3a, #1b514e, #2f654d);
+    background-size: 400% 400%;
+    animation: flowBackground 12s ease infinite;
+    color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+@keyframes flowBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 登入表單外觀 */
+#login-form {
+    margin: 20px; /* 新增外距，避免貼邊 */
+    background: rgba(0, 0, 0, 0.5);
+    padding: 2.5rem 3rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 128, 0.3);
+    text-align: center;
+    width: 300px;
+}
+
+/* 表單標題 */
+#login-form h2 {
+    margin-bottom: 1.5rem;
+    color: #a8ffcf;
+}
+
+/* 輸入框統一樣式 */
+#login-form input[type="text"],
+#login-form input[type="password"] {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #e0f7ef;
+    color: #333;
+    box-sizing: border-box;
+}
+
+/* 按鈕樣式 */
+#login-form button {
+    background-color: #3ccf91;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+#login-form button:hover {
+    background-color: #2fa373;
+}
+
+/* 超連結容器，左右分開 */
+.form-links {
+    margin: 15px 0 20px 0; /* 上15px、下20px */
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+    padding: 0 5px;
+}
+
+/* 超連結 */
+#login-form a {
+    color: #9cfdd3;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background-color 0.25s, color 0.25s;
+    user-select: none;
+}
+
+#login-form a:hover {
+    text-decoration: none;
+    background-color: #2fa373;
+    color: #fff;
+    cursor: pointer;
+}

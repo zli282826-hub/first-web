@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改密碼</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="revise.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>修改密碼</h2>
+        <form id="revise-form" action="revise.php" method="POST">
+            <input type="hidden" name="token" id="token">
+            <div class="form-group">
+                <input type="password" id="password" name="password" placeholder=" " required>
+                <label for="password">新的密碼</label>
+            </div>
+            <div class="form-group">
+                <input type="password" id="checkpassword" name="checkpassword" placeholder=" " required>
+                <label for="checkpassword">確認密碼</label>
+            </div>
+            <button type="submit">重設設定</button>
+        </form>
+        <div class="form-footer">
+            <a href="login.html" class="link">回到登入頁面</a>
+            <a href="about.html" class="link">關於我們</a>
+        </div>
+    </div>
+</body>
+</html>

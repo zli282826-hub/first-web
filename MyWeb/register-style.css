@@ -1,0 +1,107 @@
+/* 背景動畫 */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(-45deg, #1a3d2f, #214f3a, #1b514e, #2f654d);
+    background-size: 400% 400%;
+    animation: flowBackground 12s ease infinite;
+    color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+@keyframes flowBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 共用表單樣式（每個步驟） */
+.form-section {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 2.5rem 3rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 128, 0.3);
+    width: 350px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* 顯示中的區塊才會出現 */
+.form-section.active {
+    display: flex;
+}
+
+/* 標題 */
+.form-section h2 {
+    margin-bottom: 1.5rem;
+    color: #a8ffcf;
+    font-size: 1.6rem;
+}
+
+/* 輸入欄位樣式 */
+.form-section input[type="text"],
+.form-section input[type="password"],
+.form-section input[type="email"],
+.form-section input[type="date"] {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 1rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #e0f7ef;
+    color: #333;
+    box-sizing: border-box;
+}
+
+/* 隱藏欄位樣式（不特別顯示） */
+.form-section input[type="hidden"] {
+    display: none;
+}
+
+/* 按鈕樣式 */
+.form-section button {
+    width: 100%;
+    background-color: #3ccf91;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.form-section button:hover {
+    background-color: #2fa373;
+}
+
+/* 連結容器左對齊 */
+.link-left {
+    width: 100%; /* 保持寬度和表單一致 */
+    text-align: left;
+    margin-top: 1rem;
+}
+
+/* 登入連結特效（搬到註冊用） */
+.link-left a {
+    color: #9cfdd3;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: background-color 0.25s, color 0.25s;
+    user-select: none;
+    display: inline-block;
+}
+
+.link-left a:hover {
+    background-color: #2fa373;
+    color: #fff;
+    cursor: pointer;
+}

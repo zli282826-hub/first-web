@@ -1,0 +1,292 @@
+/* 整體字體、背景動畫 */
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    color: #f0f0f0;
+    background: linear-gradient(-45deg, #1a3d2f, #214f3a, #1b514e, #2f654d);
+    background-size: 400% 400%;
+    animation: flowBackground 12s ease infinite;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    padding-top: 100px;
+}
+
+@keyframes flowBackground {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* 左上選單按鈕 */
+#menuToggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    padding: 10px 18px;
+    font-size: 24px;
+    border: none;
+    border-radius: 25px;
+    background-color: #4caf50;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 2px 6px #2e7d32cc;
+    transition: background-color 0.3s ease;
+    user-select: none;
+    z-index: 1200;
+}
+
+#menuToggle:hover {
+    background-color: #388e3c;
+}
+
+.logo {
+    position: fixed;
+    top: 20px;
+    left: 100px; /* 避免跟選單按鈕重疊 */
+    color: #a5d6a7;
+    font-weight: 700;
+    font-size: 36px; /* 由原本的24px放大 */
+    text-decoration: none;
+    user-select: none;
+    z-index: 1200;
+}
+
+.logo:hover {
+    color: #e0f2f1;
+}
+
+/* 側邊選單容器 */
+#sideContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 240px;
+    height: 100vh;
+    background-color: rgba(46, 125, 50, 0.92);
+    box-shadow: 3px 0 12px rgba(0,0,0,0.4);
+    padding: 70px 20px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1100;
+}
+
+#sideContainer.show {
+    transform: translateX(0);
+}
+
+/* 側邊選單連結 */
+#sideMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+#sideMenu a {
+    color: #e0f2f1;
+    font-weight: 600;
+    font-size: 18px;
+    padding: 12px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background-color 0.25s ease, transform 0.2s ease;
+}
+
+#sideMenu a:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateX(4px);
+}
+
+/* 右上區塊（頭像、使用者名稱、登出） */
+.top-right {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    z-index: 1300;
+}
+
+.profile-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 2px solid #a5d6a7;
+    object-fit: cover;
+    background-color: #fff;
+}
+
+.username {
+    color: #a5d6a7;
+    font-weight: 600;
+    font-size: 18px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    white-space: nowrap;
+}
+
+.username:hover {
+    color: #e0f2f1;
+}
+
+.logout-btn {
+    padding: 8px 20px;
+    background-color: rgba(76, 175, 80, 0.8);
+    color: white;
+    font-weight: 700;
+    border-radius: 20px;
+    text-decoration: none;
+    box-shadow: 0 2px 6px #2e7d32cc;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.logout-btn:hover {
+    background-color: #388e3c;
+}
+
+/* 主內容區塊 */
+.profile-card {
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 128, 0.3);
+    max-width: 480px;
+    width: 100%;
+    color: #a5d6a7;
+}
+
+.profile-card h2 {
+    margin-bottom: 20px;
+    color: #a8ffcf;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* 頭像預覽 */
+.profile-card img[alt="頭像預覽"] {
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #4caf50;
+    background-color: #fff;
+}
+
+/* 表單欄位 */
+.profile-card form {
+    padding: 0 15px 20px 15px; /* 調整 padding 寬度，底部新增 20px */
+}
+
+.profile-card form input[type="text"],
+.profile-card form input[type="email"],
+.profile-card form input[type="date"],
+.profile-card form input[type="file"] {
+    width: 100%;
+    padding: 10px 15px;
+    margin: 8px 0; /* 新增上下 margin */
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #4caf50aa;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+    color: #333;
+    background-color: #e0f7ef;
+    text-align: left;
+}
+
+.profile-card form input[type="file"] {
+    margin-bottom: 16px; /* 下方間距，避免跟下方元素貼太近 */
+}
+
+.profile-card form input:focus {
+    border-color: #4caf50;
+}
+
+/* 通用按鈕 */
+.profile-card form button[type="submit"] {
+    width: 100%;
+    padding: 12px 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #4caf50;
+    color: white;
+    box-shadow: 0 3px 8px #2e7d32cc;
+    transition: background-color 0.3s ease;
+}
+
+/* 刪除帳號按鈕 */
+.profile-card form[name="delete-account"] button[type="submit"] {
+    background-color: #d32f2f;
+    box-shadow: 0 3px 8px #8b0000cc;
+    position: static;
+}
+
+.profile-card form[name="delete-account"] button[type="submit"]:hover {
+    background-color: #9a0000;
+}
+
+/* 響應式調整（小螢幕） */
+@media screen and (max-width: 520px) {
+    #sideContainer {
+        width: 180px;
+        transform: translateX(-100%);
+        padding: 60px 12px 15px 12px;
+    }
+
+    #sideMenu a {
+        font-size: 15px;
+        padding: 10px 12px;
+    }
+
+    .profile-card {
+        max-width: 90vw;
+        margin: 80px 10px 30px 10px;
+        padding: 15px;
+    }
+
+    .profile-card img[alt="頭像預覽"] {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 15px;
+    }
+
+    .logo {
+        left: 80px; /* 小螢幕 LOGO 更靠右一點 */
+    }
+
+    .top-right {
+        top: 70px; /* 右上區塊下移 */
+        right: 10px;
+        gap: 12px;
+    }
+
+    .profile-img {
+        width: 48px;
+        height: 48px;
+    }
+
+    .username {
+        font-size: 16px;
+    }
+
+    .logout-btn {
+        padding: 6px 14px;
+        font-size: 14px;
+    }
+}
